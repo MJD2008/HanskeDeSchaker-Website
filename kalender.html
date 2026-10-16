@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalender — Hanske De Schaker</title>
+  <meta property="og:title" content="Kalender — Hanske De Schaker">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.hanskedeschaker.eu/images/logo/deelbeeld.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="fonts/abril-fatface.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/franklin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#inhoud">Naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo/schild.svg" width="998" height="1297" alt="">
+        <span>Hanske<br>De Schaker</span>
+      </a>
+      <nav class="site-nav" aria-label="Hoofdmenu">
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="evenementen.html">Evenementen</a></li>
+          <li><a href="kalender.html" aria-current="page">Kalender</a></li>
+          <li><a href="geschiedenis.html">Geschiedenis</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhoud" class="wrap">
+    <h1>Kalender</h1>
+
+    <div class="times">
+      <p>Zaal open vanaf <strong>20u</strong></p>
+      <p>Clubcompetities beginnen om <strong>20u30</strong></p>
+    </div>
+
+    <!-- Filter buttons. They only appear when JavaScript works; otherwise every event simply shows. -->
+    <div class="filters" role="group" aria-label="Toon alleen" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">Alles</button>
+      <button type="button" data-filter="club" data-category="club" aria-pressed="false">Club Competitie</button>
+      <button type="button" data-filter="ovic" data-category="ovic" aria-pressed="false">OVIC</button>
+      <button type="button" data-filter="rapid" data-category="rapid" aria-pressed="false">Rapid Toernooi</button>
+      <button type="button" data-filter="event" data-category="event" aria-pressed="false">Andere</button>
+    </div>
+
+    <!-- Each event is one <li> block. data-category is one of: club, ovic, rapid, event.
+         Add class="event-row highlight" to make an evening stand out. -->
+    <section class="month">
+      <h2>Augustus 2026</h2>
+      <ul class="events">
+        <li class="event-row highlight" data-category="event">
+          <time datetime="2026-08-28">28</time>
+          <span class="what"><strong>Simultaan gebr. Dreelinckx</strong> <span class="tag">Seizoensopener</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>September 2026</h2>
+      <ul class="events">
+        <li class="event-row" data-category="rapid">
+          <time datetime="2026-09-04">04</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 1</strong> <span class="tag">Rapid Competitie</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-09-11">11</time>
+          <span class="what"><strong>Club Ronde 1-1</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2026-09-18">18</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-09-25">25</time>
+          <span class="what"><strong>Club Ronde 1-2</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Oktober 2026</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2026-10-02">02</time>
+          <span class="what"><strong>Club Ronde 1-3</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2026-10-09">09</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 2</strong> <span class="tag">Rapid Competitie</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2026-10-16">16</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-10-23">23</time>
+          <span class="what"><strong>Club Ronde 1-4</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-10-30">30</time>
+          <span class="what"><strong>Club Ronde 1-5</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>November 2026</h2>
+      <ul class="events">
+        <li class="event-row" data-category="rapid">
+          <time datetime="2026-11-06">06</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 3</strong> <span class="tag">Rapid Competitie</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-11-13">13</time>
+          <span class="what"><strong>Club Ronde 1-6</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2026-11-20">20</time>
+          <span class="what"><strong>OVIC</strong> <span class="tag">Interclub</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-11-27">27</time>
+          <span class="what"><strong>Club Ronde 1-7</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>December 2026</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2026-12-04">04</time>
+          <span class="what"><strong>Club Ronde 1-8</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2026-12-11">11</time>
+          <span class="what"><strong>OVIC</strong> <span class="tag">Interclub</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2026-12-18">18</time>
+          <span class="what"><strong>Club Ronde 1-9</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="event">
+          <time datetime="2026-12-25">25</time>
+          <span class="what"><strong>Kerstdag</strong></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Januari 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="event">
+          <time datetime="2027-01-01">01</time>
+          <span class="what"><strong>Nieuwjaarsdag</strong></span>
+        </li>
+        <li class="event-row highlight" data-category="event">
+          <time datetime="2027-01-08">08</time>
+          <span class="what"><strong>Nieuwjaarsreceptie</strong></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2027-01-15">15</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2027-01-22">22</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 4</strong> <span class="tag">Rapid &amp; Inhaalronde</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2027-01-29">29</time>
+          <span class="what"><strong>Club Ronde 2-1</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Februari 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2027-02-05">05</time>
+          <span class="what"><strong>Club Ronde 2-2</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2027-02-12">12</time>
+          <span class="what"><strong>Club Ronde 2-3</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2027-02-19">19</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2027-02-26">26</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 5</strong> <span class="tag">Rapid &amp; Inhaalronde</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Maart 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2027-03-05">05</time>
+          <span class="what"><strong>Club Ronde 2-4</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2027-03-12">12</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2027-03-19">19</time>
+          <span class="what"><strong>Club Ronde 2-5</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2027-03-26">26</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 6</strong> <span class="tag">Rapid &amp; Inhaalronde</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>April 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2027-04-02">02</time>
+          <span class="what"><strong>Club Ronde 2-6</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2027-04-09">09</time>
+          <span class="what"><strong>Club Ronde 2-7</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="ovic">
+          <time datetime="2027-04-16">16</time>
+          <span class="what"><strong>OVIC</strong></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2027-04-23">23</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 7</strong> <span class="tag">Rapid &amp; Inhaalronde</span></span>
+        </li>
+        <li class="event-row highlight" data-category="ovic">
+          <time datetime="2027-04-30">30</time>
+          <span class="what"><strong>OVIC (Finale)</strong></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Mei 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="club">
+          <time datetime="2027-05-07">07</time>
+          <span class="what"><strong>Club Ronde 2-8</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="club">
+          <time datetime="2027-05-14">14</time>
+          <span class="what"><strong>Club Ronde 2-9</strong> <span class="tag">Clubkampioenschap</span></span>
+        </li>
+        <li class="event-row" data-category="rapid">
+          <time datetime="2027-05-21">21</time>
+          <span class="what"><strong>Rapidkampioenschap - Ronde 8 (finale)</strong> <span class="tag">Slotronde Rapid</span></span>
+        </li>
+        <li class="event-row" data-category="event">
+          <time datetime="2027-05-28">28</time>
+          <span class="what"><strong>Blitz / Rapid for fun</strong> <span class="tag">Vrij Schaken</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="month">
+      <h2>Juni 2027</h2>
+      <ul class="events">
+        <li class="event-row" data-category="event">
+          <time datetime="2027-06-04">04</time>
+          <span class="what"><strong>Blitz / Rapid for fun</strong> <span class="tag">Vrij Schaken</span></span>
+        </li>
+        <li class="event-row" data-category="event">
+          <time datetime="2027-06-11">11</time>
+          <span class="what"><strong>Blitz / Rapid for fun</strong> <span class="tag">Seizoensafsluiting</span></span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo/schild.svg" width="998" height="1297" alt="">
+        <span>Hanske<br>De Schaker</span>
+      </a>
+      <nav aria-label="Menu onderaan">
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="evenementen.html">Evenementen</a></li>
+          <li><a href="kalender.html">Kalender</a></li>
+          <li><a href="geschiedenis.html">Geschiedenis</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Calendar filter: shows only one kind of event when a button is clicked.
+    var buttons = document.querySelectorAll('.filters button');
+    var rows = document.querySelectorAll('.event-row');
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var choice = button.dataset.filter;
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
+        });
+        rows.forEach(function (row) {
+          row.hidden = choice !== 'all' && row.dataset.category !== choice;
+        });
+      });
+    });
+
+    document.querySelector('.filters').hidden = false;
+  </script>
+</body>
+</html>

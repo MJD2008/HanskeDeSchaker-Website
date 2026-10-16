@@ -1,0 +1,752 @@
+/* ==========================================================================
+   Hanske De Schaker — stylesheet for the whole site
+   --------------------------------------------------------------------------
+   Colours, fonts and sizes are set ONCE, in the :root block below.
+   Change a value there and it changes everywhere.
+   ========================================================================== */
+
+
+/* ---------- 1. Fonts ------------------------------------------------------
+   Stored in the /fonts folder, so no outside service (like Google Fonts)
+   is contacted when someone visits the site.
+   - Abril Fatface: the typeface of the logo, used for headings.
+   - Libre Franklin: a sturdy, very readable typeface, used for text. */
+
+@font-face {
+  font-family: "Abril Fatface";
+  src: url("../fonts/abril-fatface.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("../fonts/franklin-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Libre Franklin";
+  src: url("../fonts/franklin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+/* ---------- 2. Colours, fonts and sizes ----------------------------------
+   The colours are the heraldic colours of the club's shield, matched to
+   its home: the brick red and green gates of Abdij Maagdendale.          */
+
+:root {
+  --black: #000;         /* the ink of the logo */
+  --red:   #a3302b;      /* Maagdendale brick */
+  --green: #2e5248;      /* "de groene poort" */
+  --gold:  #8c6a12;      /* Hanske's gold */
+  --white: #fff;
+
+  --text:  #222;         /* body text */
+  --muted: #5c5c5c;      /* dates, captions, small print */
+  --stone: #f1f1ee;      /* light background for highlighted rows */
+  --line:  #e2e2de;      /* thin dividing lines in lists */
+
+  --font-display: "Abril Fatface", Georgia, serif;
+  --font-body: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --page-width: 72rem;   /* widest the content gets */
+  --text-width: 38rem;   /* comfortable reading width for paragraphs */
+  --gutter: clamp(1rem, 4vw, 2.5rem); /* space at the left/right edge */
+}
+
+
+/* ---------- 3. Basics ---------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.125rem;   /* 18px */
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5em;
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 400;      /* Abril Fatface only comes in one (heavy) weight */
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.5rem, 1.5rem + 4.4vw, 4.5rem); }
+h2 { font-size: clamp(1.75rem, 1.35rem + 1.5vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem); }
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--red);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: var(--black);
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* Anything with the "hidden" attribute stays hidden, whatever else applies */
+[hidden] {
+  display: none !important;
+}
+
+/* Centres the content and keeps it away from the screen edges */
+.wrap {
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.lead {
+  max-width: var(--text-width);
+  font-size: 1.3125rem;  /* 21px */
+  line-height: 1.55;
+}
+
+.text {
+  max-width: var(--text-width);
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* "Naar de inhoud" link: invisible until reached with the Tab key */
+.skip {
+  position: absolute;
+  top: 0.75rem;
+  left: -9999px;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  color: var(--black);
+  font-weight: 700;
+}
+
+.skip:focus {
+  left: 0.75rem;
+}
+
+
+/* ---------- 4. Header and menu ------------------------------------------- */
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2.5rem;
+  padding-block: 1.25rem;
+}
+
+/* Shield + club name, used in the header and the footer */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.brand img {
+  width: auto;
+  height: 4.5rem;
+}
+
+.brand span {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  line-height: 1;
+}
+
+.brand:hover {
+  color: var(--black);
+}
+
+.site-nav ul,
+.site-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: block;
+  padding-block: 0.3rem;
+  border-bottom: 3px solid transparent;
+  color: var(--black);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--black);
+}
+
+/* The page you are on */
+.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--red);
+  color: var(--red);
+}
+
+main {
+  padding-block: 2rem 1rem;
+}
+
+
+/* ---------- 5. Start page ------------------------------------------------ */
+
+/* Keeps "Hanske De Schaker!" together on one line where it fits */
+.home h1 {
+  max-width: 10em;
+  margin-top: 0.25em;
+  text-wrap: wrap;
+}
+
+.home h1 .nowrap {
+  white-space: nowrap;
+}
+
+@media (min-width: 40rem) {
+  .home h1 .name {
+    white-space: nowrap;
+  }
+}
+
+/* Two photos side by side at the same height.
+   The flex-grow numbers are each photo's width divided by its height. */
+.photo-pair {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.photo-pair img {
+  min-width: 0;
+  flex-basis: 0;
+}
+
+.photo-pair img:nth-child(1) { flex-grow: 1.715; }  /* 799 / 466 */
+.photo-pair img:nth-child(2) { flex-grow: 0.839; }  /* 584 / 696 */
+
+
+/* ---------- 6. Evenementen ----------------------------------------------- */
+
+/* Each year: the year on the left, that year's events on the right */
+.year {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 0 2.5rem;
+  padding-block: 2.5rem;
+}
+
+.year-label {
+  position: sticky;      /* the year stays in view while you scroll */
+  top: 1.5rem;
+  align-self: start;
+  margin: 0;
+  color: var(--red);
+  font-size: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  line-height: 1;
+}
+
+.event {
+  max-width: 50rem;
+}
+
+.event + .event {
+  margin-top: 4rem;
+}
+
+.event h3 {
+  margin-bottom: 0.25em;
+}
+
+.event p {
+  max-width: var(--text-width);
+}
+
+.date {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Photo groups: up to three columns on wide screens, fewer on phones.
+   Photos keep their own shape; nothing is cropped. */
+.photos {
+  columns: 3 12rem;
+  column-gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* Exactly two photos: two columns */
+.photos:has(> img:nth-child(2):last-child) {
+  columns: 2 12rem;
+}
+
+.photos img {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+}
+
+/* For groups of small photos: narrower columns */
+.photos.small {
+  columns: 3 8.5rem;
+}
+
+/* Small score tables */
+.scores {
+  margin: 0.5rem 0 1.5rem;
+  border-collapse: collapse;
+}
+
+.scores caption {
+  margin-bottom: 0.4rem;
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.scores th,
+.scores td {
+  padding: 0.45rem 1.75rem 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.scores td:last-child {
+  padding-right: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------- 7. Kalender -------------------------------------------------- */
+
+.times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3.5rem;
+  margin: 0.5rem 0 2.5rem;
+}
+
+.times p {
+  margin: 0;
+}
+
+.times strong {
+  display: block;
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* Each kind of event has its own colour (a small square, like a chessboard square) */
+[data-category="club"]  { --kind: var(--black); }
+[data-category="ovic"]  { --kind: var(--red); }
+[data-category="rapid"] { --kind: var(--green); }
+[data-category="event"] { --kind: var(--gold); }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.95rem;
+  border: 2px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background: var(--stone);
+}
+
+.filters button[aria-pressed="true"] {
+  background: var(--black);
+  color: var(--white);
+}
+
+.filters button[data-category]::before,
+.event-row .what::before {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  background: var(--kind);
+}
+
+.filters button[aria-pressed="true"]::before {
+  outline: 2px solid var(--white);
+}
+
+.month {
+  max-width: 46rem;
+}
+
+.month h2 {
+  margin: 2.5rem 0 0.5rem;
+  font-size: 1.875rem;
+}
+
+/* A month with no visible events (because of the filter) is hidden */
+.month:not(:has(.event-row:not([hidden]))) {
+  display: none;
+}
+
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.event-row time {
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Square, title and label side by side (the label moves under the title on phones) */
+.event-row .what {
+  display: grid;
+  grid-template-columns: 0.8em auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.1rem 0.7rem;
+}
+
+.event-row .what::before {
+  align-self: start;
+  margin-top: 0.42em;
+}
+
+.event-row .tag {
+  margin-left: 0.35rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Special evenings */
+.event-row.highlight {
+  background: var(--stone);
+}
+
+
+/* ---------- 8. Geschiedenis ---------------------------------------------- */
+
+/* A block of text with photos next to it */
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2rem 3rem;
+  align-items: start;
+  margin-bottom: 4.5rem;
+}
+
+.story.reverse > figure,
+.story.reverse > .archive {
+  order: -1;
+}
+
+.story img {
+  width: 100%;
+}
+
+/* Archive photos in two columns, each photo keeping its own shape */
+.archive {
+  columns: 2;
+  column-gap: 0.75rem;
+}
+
+.archive img {
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+}
+
+.champions {
+  columns: 3 14rem;
+  column-gap: 2.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.champions li {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--line);
+  break-inside: avoid;
+}
+
+.champions .year-number {
+  color: var(--red);
+  font-family: var(--font-display);
+}
+
+
+/* ---------- 9. Contact --------------------------------------------------- */
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.mail {
+  margin-top: -0.75em;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+.people {
+  margin: 2rem 0;
+}
+
+.people div {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.people dt {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.people dd {
+  margin: 0;
+}
+
+.people a {
+  font-weight: 700;
+}
+
+.location figure {
+  margin-bottom: 1rem;
+}
+
+.lessons {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--green);
+  color: var(--white);
+}
+
+.lessons h2 {
+  color: var(--white);
+}
+
+.lessons a {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.lessons .note {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+
+/* ---------- 10. Footer --------------------------------------------------- */
+
+.site-footer {
+  margin-top: 4rem;
+  background: var(--red);
+  color: var(--white);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  padding-block: 2rem;
+}
+
+.site-footer .brand,
+.site-footer .brand:hover,
+.site-footer a {
+  color: var(--white);
+}
+
+.site-footer .brand img {
+  height: 3.75rem;
+  filter: invert(1);     /* turns the black shield white */
+}
+
+.site-footer ul a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer ul a:hover {
+  text-decoration: underline;
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--white);
+}
+
+
+/* ---------- 11. Tablets and phones --------------------------------------- */
+
+@media (max-width: 56rem) {
+  .story,
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .story.reverse > figure,
+  .story.reverse > .archive {
+    order: 0;
+  }
+}
+
+@media (max-width: 48rem) {
+  .year {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 1.5rem;
+  }
+
+  .year-label {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .photo-pair {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 40rem) {
+  body {
+    font-size: 1.0625rem;  /* 17px */
+  }
+
+  .site-header .wrap {
+    padding-block: 1rem;
+  }
+
+  .brand img {
+    height: 3.5rem;
+  }
+
+  .brand span {
+    font-size: 1.375rem;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+
+  .site-nav ul {
+    gap: 0.25rem 1.1rem;
+  }
+
+  .lead {
+    font-size: 1.1875rem;
+  }
+
+  .times strong {
+    font-size: 2.5rem;
+  }
+
+  .event-row {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding-inline: 0.5rem;
+  }
+
+  .event-row time {
+    font-size: 1.625rem;
+  }
+
+  .event-row .what {
+    grid-template-columns: 0.8em minmax(0, 1fr);
+  }
+
+  .event-row .tag {
+    grid-column: 2;
+    margin-left: 0;
+  }
+}
+
+/* Respect people who prefer less motion (the site has very little anyway) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
